@@ -52,20 +52,8 @@
           <button class="all-task__button button all-task__button--sorted-date" type="button">По дате создания</button>
           <button class="all-task__button button all-task__button--sorted-deadline" type="button">По сроку выполнения</button>
         </div>
-        <span class="task">У вас пока нет задач</span>
+        <span class="task__note">У вас пока нет задач</span>
         <div class="all-task__container">
-          <div class="task">
-            <h3 class="task__name"></h3>
-            <span class="task__description"></span>
-            <div class="task__deadline">
-              <span class="task__date"></span>
-              <span class="task__time"></span>
-            </div>
-            <div class="task__button">
-              <button class="task__button--done" type="button">Выполнено</button>
-              <button class="task__button--change" type="button">Изменить</button>
-              <button class="task__button--delete" type="button">Удалить</button>
-            </div>
           <!-- Здесь будут отображаться добавляенные задачи -->
         </div>
       </section>
@@ -74,16 +62,18 @@
     <!-- Шаблон задачи -->
     <template id="task">
       <div class="task">
-        <h3 class="task__name"></h3>
-        <span class="task__description"></span>
-        <div class="task__deadline">
-          <span class="task__date"></span>
-          <span class="task__time"></span>
+        <div class="task__info">
+          <h3 class="task__name">купить что-то</h3>
+          <span class="task__description">сходить и купить</span>
+          <div class="task__deadline">
+            <span class="task__date">13 июня</span>
+            <span class="task__time">13:00</span>
+          </div>
         </div>
-        <div class="task__button button">
-          <button class="button__done" type="button">Выполнено</button>
-          <button class="button__change" type="button">Изменить</button>
-          <button class="button__delete" type="button">Удалить</button>
+        <div class="task__button-container">
+          <button class="task__button--done button" type="button">Выполнено</button>
+          <button class="task__button--change button" type="button">Изменить</button>
+          <button class="task__button--delete button" type="button">Удалить</button>
         </div>
       </div>
     </template>

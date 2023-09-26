@@ -53,7 +53,6 @@
   padding: 5px;
   border: none;
   border-radius: 5px;
-  font-weight: 700;
   cursor: pointer;
   background-color: #3A5487;
   color: #ffffff;
@@ -115,8 +114,51 @@
 .add-task__button {
   text-transform: uppercase;
   letter-spacing: 1px;
+  font-weight: 700;
 }
 
 /* Список задач */
 /* Сортировка */
-.all-task__sorted
+.all-task__sorted {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 10px;
+  align-items: baseline;
+}
+
+/* Шаблон новой задачи */
+.task {
+  display: flex;
+  justify-content: space-between;
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 15px;
+  width: 48%;
+  column-gap: 10px;
+}
+
+.task__button-container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.task__name {
+  margin: 0;
+}
+
+.task__button--done {
+  background-color: #2B7624;
+}
+
+.task__button--delete {
+  background-color: #B21212;
+}
+
+/* Контейнер для новых задач */
+.all-task__container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  row-gap: 20px;
+}
