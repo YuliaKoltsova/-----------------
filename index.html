@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>Планировщик задач</title>
+    <link rel="stylesheet" href="assets/style.css">
+  </head>
+  <body class="body">
+    <main class="main">
+      <h1 class="main-title title">Планировщик задач</h1>
+
+      <!-- Добавление задачи -->
+      <section class="add-task">
+        <h2 class="add-task__subtitle subtitle">Добавить задачу</h2>
+        <div class="add-task__container">
+          <form class="upload-task" method="post" enctype="multipart/form-data" action="#">
+            <ul class="add-task__list">
+              <li class="add-task__item">
+                <label class="add-task__label"> Название задачи
+                  <input class="add-task__input" type="text" required>
+                </label>
+              </li>
+              <li class="add-task__item">
+                <label class="add-task__label"> Описание задачи
+                  <input class="add-task__input" type="text">
+                </label>
+              </li>
+              <li>
+                <ul class="add-task__list add-task__list--small-list">
+                  <li class="add-task__item add-task__item--small-item">
+                    <label class="add-task__label"> Дата
+                      <input class="add-task__input" type="date" required>
+                    </label>
+                  </li>
+                  <li class="add-task__item add-task__item--small-item">
+                    <label class="add-task__label"> Время
+                      <input class="add-task__input" type="time" required> 
+                    </label>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <button class="add-task__button button" type="button">Добавить задачу</button>
+          </form>
+        </div>
+      </section>
+
+      <section class="all-task">
+        <h2 class="all-task__subtitle subtitle">Мои задачи</h2>
+        <div class="all-task__sorted">
+          <span>Сортировать:</span>
+          <button class="all-task__button button all-task__button--sorted-date" type="button">По дате создания</button>
+          <button class="all-task__button button all-task__button--sorted-deadline" type="button">По сроку выполнения</button>
+        </div>
+        <span class="task">У вас пока нет задач</span>
+        <div class="all-task__container">
+          <div class="task">
+            <h3 class="task__name"></h3>
+            <span class="task__description"></span>
+            <div class="task__deadline">
+              <span class="task__date"></span>
+              <span class="task__time"></span>
+            </div>
+            <div class="task__button">
+              <button class="task__button--done" type="button">Выполнено</button>
+              <button class="task__button--change" type="button">Изменить</button>
+              <button class="task__button--delete" type="button">Удалить</button>
+            </div>
+          <!-- Здесь будут отображаться добавляенные задачи -->
+        </div>
+      </section>
+    </main>
+
+    <!-- Шаблон задачи -->
+    <template id="task">
+      <div class="task">
+        <h3 class="task__name"></h3>
+        <span class="task__description"></span>
+        <div class="task__deadline">
+          <span class="task__date"></span>
+          <span class="task__time"></span>
+        </div>
+        <div class="task__button button">
+          <button class="button__done" type="button">Выполнено</button>
+          <button class="button__change" type="button">Изменить</button>
+          <button class="button__delete" type="button">Удалить</button>
+        </div>
+      </div>
+    </template>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

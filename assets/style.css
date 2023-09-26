@@ -1,0 +1,122 @@
+/* Подключение шрифтов */
+@font-face {
+  font-family: "PT Sans";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../assets/fonts/ptsans.woff2") format("woff2"), url("../assets/fonts/ptsans.woff") format("woff");
+  font-display: swap;
+}
+
+/* Основные стили страницы */
+.body {
+  background-color: #f2f2f2;
+  width: 100%;
+  font-family: "PT Sans", "Arial", sans-serif;
+  font-style: normal;
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 400;
+}
+
+.main {
+  background-color: #ffffff;
+  width: 70%;
+  margin: 0 auto;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(0,1,1,.2);
+}
+
+.title,
+.subtitle {
+  margin: 0;
+}
+
+.subtitle {
+  margin-bottom: 10px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+
+/* Основной заголовок */
+.main-title {
+  margin-bottom: 15px;
+}
+
+/* Общие стили кнопки */
+.button {
+  font-family: "PT Sans", "Arial", sans-serif;
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+  font-weight: 700;
+  cursor: pointer;
+  background-color: #3A5487;
+  color: #ffffff;
+}
+
+.button:hover {
+  opacity: 0.9;
+}
+
+.button:active {
+  opacity: 0.7;
+}
+
+/* Добавляение задачи */
+.upload-task {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
+.add-task,
+.all-task {
+  background-color: #DBE6FD;
+  border-radius: 10px;
+  padding: 15px;
+}
+
+.add-task {
+  margin-bottom: 25px;
+}
+
+.add-task__list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  row-gap: 5px;
+}
+
+.add-task__list--small-list {
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.add-task__input {
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  min-height: 30px;
+  cursor: pointer;
+}
+
+.add-task__item--small-item {
+  width: 48%;
+}
+
+.add-task__button {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Список задач */
+/* Сортировка */
+.all-task__sorted
