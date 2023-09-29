@@ -163,3 +163,8 @@
   justify-content: space-between;
   row-gap: 20px;
 }
+
+/* Стили для выполненной задачи */
+.task--done {
+  opacity: 0.6;
+}

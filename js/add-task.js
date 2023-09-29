@@ -51,4 +51,4 @@ const addTask = (evt) => {
 
 form.addEventListener("submit", addTask); // Добавление задачи при отправке формы
 
-
+export {allTasksContainer, sortContainer, taskNote} // экспортируем переменные, чтобы в модулях не искать их снова
