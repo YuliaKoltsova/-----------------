@@ -9,7 +9,7 @@ const inputTime = document.querySelector(".add-task__input--time"); // врем�
 const allTasksContainer = document.querySelector(".all-task__container"); // место в разметке, куда добавляем новые задачи
 
 const sortContainer = document.querySelector(".all-task__sorted"); // контейнер с кнопками сортировки
-const taskNote = document.querySelector(".task__note"); // контейнер с кнопками сортировки
+const taskNote = document.querySelector(".task__note"); // надпись "У вас пока нет задач"
 
 // функция добавления новой задачи 
 const addTask = (evt) => {
@@ -49,5 +49,6 @@ const addTask = (evt) => {
   }
 }
 
-form.addEventListener("submit", addTask); // вешаем слушатель отправки на форму
+form.addEventListener("submit", addTask); // Добавление задачи при отправке формы
+
 
