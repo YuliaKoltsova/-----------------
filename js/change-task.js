@@ -26,4 +26,4 @@ const changeTask = (evt) => {
   }
 }
 
-allTasksContainer.addEventListener("click", changeTask); // редактировать задачу
+export {changeTask};

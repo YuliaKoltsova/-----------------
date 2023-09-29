@@ -13,4 +13,4 @@ const doneTask = (evt) => {
   }
 }
 
-allTasksContainer.addEventListener("click", doneTask); // отметить задачу как выполненную
+export {doneTask};

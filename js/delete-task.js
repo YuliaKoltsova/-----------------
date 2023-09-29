@@ -19,4 +19,4 @@ const deleteTask = (evt) => {
   }
 }
 
-allTasksContainer.addEventListener("click", deleteTask); // удаление задачи
+export {deleteTask};
