@@ -1,4 +1,7 @@
 // Добавление новой задачи
+import { saveToLocalStorage } from "./save-to-local-storage.js"; //функция сохранение данных в localStorage
+import {renderTasks} from "./render-tasks.js"; // отображение задач
+
 const form = document.querySelector(".upload-task"); // форма
 
 const inputName = document.querySelector(".add-task__input--name"); // название задачи
@@ -11,6 +14,16 @@ const allTasksContainer = document.querySelector(".all-task__container"); // м�
 const sortContainer = document.querySelector(".all-task__sorted"); // контейнер с кнопками сортировки
 const taskNote = document.querySelector(".task__note"); // надпись "У вас пока нет задач"
 
+let tasks = []; // массив для localStorage
+
+if (localStorage.getItem("tasks")) { // проверяем есть ли в localStorage какие-нибудь данные
+  tasks = JSON.parse(localStorage.getItem("tasks"));
+}
+
+tasks.forEach((task) => {
+  renderTasks(task);
+})
+
 // функция добавления новой задачи 
 const addTask = (evt) => {
   evt.preventDefault(); // отменяем отправку формы
@@ -21,14 +34,29 @@ const addTask = (evt) => {
   const dateText = inputDate.value;
   const timeText = inputTime.value;
 
+  //Объект со значениями новой задачи
+  const newTaskObject = {
+    id: Date.now(),
+    name: nameText,
+    description: descriptionText,
+    data: dateText,
+    time: timeText,
+    done: false,
+    dateAdd: new Date, 
+  }
+
+  //Добавляем задачу в массив с задачами
+  tasks.push(newTaskObject);
+
   // добавляем новую задачу в разметку
   const taskTemplate = document.querySelector("#task").content.querySelector(".task"); // шаблон новой задачи
   const newTask = taskTemplate.cloneNode(true); // клонируем шаблон
-  // подставляем в шаблон данные из инпутов
-  newTask.querySelector(".task__name").textContent = nameText;
-  newTask.querySelector(".task__description").textContent = descriptionText;
-  newTask.querySelector(".task__date").textContent = dateText;
-  newTask.querySelector(".task__time").textContent = timeText;
+  newTask.id = newTaskObject.id;
+    // подставляем в шаблон данные из инпутов(через объект)
+  newTask.querySelector(".task__name").textContent = newTaskObject.name;
+  newTask.querySelector(".task__description").textContent = newTaskObject.description;
+  newTask.querySelector(".task__date").textContent = newTaskObject.data;
+  newTask.querySelector(".task__time").textContent = newTaskObject.time;
   newTask.dataset.time = new Date;
   allTasksContainer.append(newTask);
 
@@ -39,17 +67,19 @@ const addTask = (evt) => {
   inputTime.value = "";
 
   // Если в списке 2 и больше задач, то добавляем блок с сортировкой
-  const countTasks = allTasksContainer.children.length;
-  if (countTasks >= 2) {
+  // const countTasks = allTasksContainer.children.length;
+  if (tasks.length >= 2) {
     sortContainer.style.display = "block";
   }
 
   // при добавлении задачи убираем надпись "у вас нет задач"
-  if (countTasks >= 1) {
+  if (tasks.length >= 1) {
     taskNote.style.display = "none";
   }
+
+  saveToLocalStorage(); //сохранение данных в localStorage
 }
 
 form.addEventListener("submit", addTask); // Добавление задачи при отправке формы
 
-export {allTasksContainer, sortContainer, taskNote} // экспортируем переменные, чтобы в модулях не искать их снова
+export {allTasksContainer, sortContainer, taskNote, tasks} // экспортируем переменные, чтобы в модулях не искать их снова

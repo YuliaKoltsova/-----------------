@@ -1,9 +1,19 @@
 // Сортировка задач 
-import {allTasksContainer, sortContainer} from "./add-task.js"; // импортируем нужные переменные
+import {allTasksContainer, sortContainer, taskNote, tasks} from "./add-task.js"; // импортируем нужные переменные
+console.log(tasks);
+const showSortedButton = () => {
+  if (tasks.length >= 2) {
+    sortContainer.style.display = "block";
+  }
+  if (tasks.length >= 1) {
+    taskNote.style.display = "none";
+  }
+}
+showSortedButton()
 
 // кнопки сортировки
-const sortAddTaskButton = document.querySelector(".all-task__button--sorted-date"); // Сортировка по дате создания
-const sortDeadlineButton = document.querySelector(".all-task__button--sorted-deadline"); // Сортировка по сроку выполнения
+const sortAddTaskButton = sortContainer.querySelector(".all-task__button--sorted-date"); // Сортировка по дате создания
+const sortDeadlineButton = sortContainer.querySelector(".all-task__button--sorted-deadline"); // Сортировка по сроку выполнения
 
 //Сортировка по возрастанию
 const sortDescendingField = (name, array) => {
