@@ -29,6 +29,7 @@ const addTask = (evt) => {
   newTask.querySelector(".task__description").textContent = descriptionText;
   newTask.querySelector(".task__date").textContent = dateText;
   newTask.querySelector(".task__time").textContent = timeText;
+  newTask.dataset.time = new Date;
   allTasksContainer.append(newTask);
 
   // очищаем поля ввода
