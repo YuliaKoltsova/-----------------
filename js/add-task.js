@@ -49,16 +49,7 @@ const addTask = (evt) => {
   tasks.push(newTaskObject);
 
   // добавляем новую задачу в разметку
-  const taskTemplate = document.querySelector("#task").content.querySelector(".task"); // шаблон новой задачи
-  const newTask = taskTemplate.cloneNode(true); // клонируем шаблон
-  newTask.id = newTaskObject.id;
-    // подставляем в шаблон данные из инпутов(через объект)
-  newTask.querySelector(".task__name").textContent = newTaskObject.name;
-  newTask.querySelector(".task__description").textContent = newTaskObject.description;
-  newTask.querySelector(".task__date").textContent = newTaskObject.data;
-  newTask.querySelector(".task__time").textContent = newTaskObject.time;
-  newTask.dataset.time = new Date;
-  allTasksContainer.append(newTask);
+  renderTasks(newTaskObject);
 
   // очищаем поля ввода
   inputName.value = "";

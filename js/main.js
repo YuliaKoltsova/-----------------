@@ -1,4 +1,3 @@
-
 import "./add-task.js"; // Добавление задачи
 import {deleteTask} from "./delete-task.js"; //Удаление задачи 
 import {doneTask} from "./done-task.js"; // Отметка задачи как выполненной
