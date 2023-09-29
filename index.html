@@ -59,6 +59,41 @@
       </section>
     </main>
 
+    <!-- Модальное окно -->
+    <div class="modal-container">
+      <div class="modal-content">
+        <form class="upload-task" method="post" enctype="multipart/form-data" action="#">
+          <ul class="add-task__list">
+            <li class="add-task__item">
+              <label class="add-task__label"> Название задачи
+                <input class="add-task__input add-task__input--name" type="text" name="name" autocomplete="off" required>
+              </label>
+            </li>
+            <li class="add-task__item">
+              <label class="add-task__label"> Описание задачи
+                <input class="add-task__input add-task__input--description" type="text" name="description" autocomplete="off">
+              </label>
+            </li>
+            <li>
+              <ul class="add-task__list add-task__list--small-list">
+                <li class="add-task__item add-task__item--small-item">
+                  <label class="add-task__label"> Дата
+                    <input class="add-task__input add-task__input--date" type="date" name="date" autocomplete="off" required>
+                  </label>
+                </li>
+                <li class="add-task__item add-task__item--small-item">
+                  <label class="add-task__label"> Время
+                    <input class="add-task__input add-task__input--time" type="time" name="time" autocomplete="off" required> 
+                  </label>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <button class="add-task__button button" type="submit">Сохранить изменения</button>
+        </form>
+      </div>
+    </div>
+
     <!-- Шаблон задачи -->
     <template id="task">
       <div class="task">
