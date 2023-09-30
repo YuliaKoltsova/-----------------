@@ -31,6 +31,7 @@ const changeTask = (evt) => {
       task.description = modal.querySelector(".add-task__input--description").value;
       task.date = modal.querySelector(".add-task__input--date").value;
       task.time = modal.querySelector(".add-task__input--time").value;
+      task.notification = false;
       saveToLocalStorage()
     })
   }
