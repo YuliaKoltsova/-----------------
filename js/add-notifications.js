@@ -11,8 +11,8 @@ setInterval(() => {
 
   tasks.forEach((task) => {
     const dateTask = Date.parse(new Date(task.data + " " + task.time));
-
-    if (dateTask == currentDate || dateTask <= currentDate){
+    // напоминание о ближайшей задачи будет за 10 минут до ее начала. 10 минут = 600000 миллисекунд
+    if (dateTask == currentDate - 600000 || dateTask <= currentDate -600000){ 
       if (task.notification == false) {
         notification.style.display = "flex";
         notification.querySelector(".notification__name").textContent = task.name;
