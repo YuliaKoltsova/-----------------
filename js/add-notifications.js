@@ -1,11 +1,6 @@
 // Добавление уведомлений
 import { tasks } from "./add-task.js";
 
-const notification = document.querySelector(".notification");
-const notificationCloseButton = document.querySelector(".notification__close-button");
-console.log(notification);
-
-console.log(tasks)
 setInterval(() => {
   let currentDate = Date.parse(new Date());
 
