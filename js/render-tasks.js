@@ -11,7 +11,6 @@ const renderTasks = (task) => { //Добавляем задачу на стра�
   newTask.querySelector(".task__description").textContent = task.description;
   newTask.querySelector(".task__date").textContent = task.data;
   newTask.querySelector(".task__time").textContent = task.time;
-  newTask.dataset.time = new Date;
   allTasksContainer.append(newTask);
   if (task.done == true) {
     newTask.classList.add("task--done");
