@@ -1,5 +1,6 @@
 // Добавление уведомлений
 import { tasks } from "./add-task.js";
+import { saveToLocalStorage } from "./save-to-local-storage.js";
 
 setInterval(() => {
   let currentDate = Date.parse(new Date());
@@ -10,8 +11,9 @@ setInterval(() => {
     if (dateTask == currentDate + 600000 || dateTask <= currentDate + 600000){ 
       const minutes = Math.trunc(((currentDate + 600000) - dateTask) / 60000);
       if (task.notification == false) {
-        alert("Напоминание! Через" + " " + minutes + " " + "минут:" + " " + task.name  + ". " + task.description + ". " +  task.data + " " + task.time);
         task.notification = true;
+        saveToLocalStorage();
+        alert("Напоминание! Через" + " " + minutes + " " + "минут:" + " " + task.name  + ". " + task.description + ". " +  task.data + " " + task.time);
       }
     }
   })
