@@ -29,10 +29,10 @@ const changeTask = (evt) => {
       const task = tasks.find((task) => task.id == id); //находим в массиве задачу с нужным id
       task.name = modal.querySelector(".add-task__input--name").value;
       task.description = modal.querySelector(".add-task__input--description").value;
-      task.date = modal.querySelector(".add-task__input--date").value;
+      task.data = modal.querySelector(".add-task__input--date").value;
       task.time = modal.querySelector(".add-task__input--time").value;
       task.notification = false;
-      saveToLocalStorage()
+      saveToLocalStorage();
     })
   }
 }
