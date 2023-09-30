@@ -42,6 +42,7 @@ const addTask = (evt) => {
     data: dateText,
     time: timeText,
     done: false,
+    notification: false,
   }
 
   //Добавляем задачу в массив с задачами

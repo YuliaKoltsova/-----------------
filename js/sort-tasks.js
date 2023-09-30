@@ -1,6 +1,6 @@
 // Сортировка задач 
 import {allTasksContainer, sortContainer, taskNote, tasks} from "./add-task.js"; // импортируем нужные переменные
-console.log(tasks);
+
 const showSortedButton = () => {
   if (tasks.length >= 2) {
     sortContainer.style.display = "block";
