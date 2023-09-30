@@ -195,22 +195,3 @@
   box-shadow: 0 5px 15px rgba(0,1,1,.2);
   display: block;
 }
-
-/* Уведомление */
-.notification {
-  position: absolute;
-  background-color: #FC3B3B;
-  top: 0;
-  color: #ffffff;
-  display: none;
-  row-gap: 10px;
-  flex-direction: column;
-  padding: 15px;
-  width: 300px;
-  flex-wrap: wrap;
-}
-
-.notification__close-button {
-  background-color: #ffffff;
-  color: #000000;
-}
