@@ -16,11 +16,11 @@ const sortAddTaskButton = sortContainer.querySelector(".all-task__button--sorted
 const sortDeadlineButton = sortContainer.querySelector(".all-task__button--sorted-deadline"); // Сортировка по сроку выполнения
 
 //Сортировка по возрастанию
-const sortDescendingField = (name, array) => {
+const sortDescendingField = (name1, name2, array) => {
   array.sort(function(a, b) { 
-    if (new Date(a.querySelector(name).textContent) > new Date(b.querySelector(name).textContent)) {
+    if (new Date(a.querySelector(name1).textContent + " " + a.querySelector(name2).textContent) > new Date(b.querySelector(name1).textContent + " " + b.querySelector(name2).textContent)) {
       return 1;
-      } else if (new Date(a.querySelector(name).textContent) < new Date(b.querySelector(name).textContent)) {
+      } else if (new Date(a.querySelector(name1).textContent + " " + a.querySelector(name2).textContent) < new Date(b.querySelector(name1).textContent + " " + b.querySelector(name2).textContent)) {
       return -1;
       } else {
       return 0;
@@ -29,11 +29,11 @@ const sortDescendingField = (name, array) => {
 }
 
 //Сортировка по убыванию
-const sortAscendingField = (name, array) => {
+const sortAscendingField = (name1, name2, array) => {
   array.sort(function(a, b) { 
-    if (new Date(a.querySelector(name).textContent) < new Date(b.querySelector(name).textContent)) {
+    if (new Date(a.querySelector(name1).textContent + " " + a.querySelector(name2).textContent) < new Date(b.querySelector(name1).textContent + " " + b.querySelector(name2).textContent)) {
       return 1;
-      } else if (new Date(a.querySelector(name).textContent) > new Date(b.querySelector(name).textContent)) {
+      } else if (new Date(a.querySelector(name1).textContent + " " + a.querySelector(name2).textContent) > new Date(b.querySelector(name1).textContent + " " + b.querySelector(name2).textContent)) {
       return -1;
       } else {
       return 0;
@@ -44,9 +44,9 @@ const sortAscendingField = (name, array) => {
 //Сортировка по возрастанию
 const sortDescendingAddData = (array) => {
   array.sort(function(a, b) { 
-    if (a.dataset.time < b.dataset.time) {
+    if (a.id < b.id) {
       return 1;
-      } else if (a.dataset.time > b.dataset.time) {
+      } else if (a.id > b.id) {
       return -1;
       } else {
       return 0;
@@ -56,9 +56,9 @@ const sortDescendingAddData = (array) => {
 //Сортировка по убыванию
 const sortAscendingAddData = (array) => {
   array.sort(function(a, b) { 
-    if (a.dataset.time > b.dataset.time) {
+    if (a.id > b.id) {
       return 1;
-      } else if (a.dataset.time < b.dataset.time) {
+      } else if (a.id < b.id) {
       return -1;
       } else {
       return 0;
@@ -85,9 +85,9 @@ const sortDeadline = (evt) => {
     const arrayTasks = getArray(); // получаем массив со всеми задачами
     // Сортировка
     if (buttonDate.classList.contains("ascending")) {
-      sortDescendingField(".task__date", arrayTasks);
+      sortDescendingField(".task__date", ".task__time", arrayTasks);
     } else {
-      sortAscendingField(".task__date", arrayTasks);
+      sortAscendingField(".task__date", ".task__time", arrayTasks);
     } 
     // добавляем отсортированные задачи
     arrayTasks.forEach(function(item) { 
